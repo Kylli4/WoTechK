@@ -1,7 +1,7 @@
 # WoTechK
 #Welcome to my repository
 ## My skills
-_ Java
+- Java
 - Python
 - GitHub
   
