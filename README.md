@@ -18,5 +18,5 @@ double eggPrice = 2.50;
     } else {
       System.out.println("You can't buy eggs");
       System.out.println("You need " + (eggPrice - money) + " more");
-      System.out.println("Go robb the bank");
+      System.out.println("Go get more money");
     }```
