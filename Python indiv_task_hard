@@ -1,1 +1,31 @@
+print("Welcome to the bank!")
+balance = 0
 
+while True:
+    print("What would you like to do?")
+    print("1. Deposit money")
+    print("2. Withdraw money")
+    print("3. Check balance")
+    print("4. Exit")
+    
+    choice = input("Please enter your choice (1-4): ").strip()
+
+    if choice == '1':
+        deposit = int(input("Enter the amount of money you want to deposit: "))
+        balance += deposit
+        print(f"Deposit successful! Your current balance is: EUR {balance}")
+    elif choice == '2':
+        withdrawal = int(input("Enter the amount of money you want to withdraw: "))
+        if withdrawal > balance:
+            print("Insufficient funds! Withdrawal not possible.")
+        else:
+            balance -= withdrawal
+            print(f"Withdrawal successful! Your current balance is: EUR {balance}")
+    elif choice == '3':
+        print(f"Your current balance is: EUR {balance}")
+    elif choice == '4':
+        break
+    else:
+        print("Invalid choice! Please select a valid option.")
+
+print(f"Thank you for using our bank! Your final balance is: EUR {balance}")
