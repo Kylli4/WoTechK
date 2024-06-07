@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static BookManager bookManager = new BookManager();
+
+    public static void main(String[] args) {
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("My library");
+            System.out.println("1. Add a book");
+            System.out.println("2. Remove a book");
+            System.out.println("3. View all books");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+
+            var userInput = scanner.nextLine();
+
+            if (userInput.equals("1")) {
+                addBook();
+            } else if (userInput.equals("2")) {
+                removeBook();
+            } else if (userInput.equals("3")) {
+                viewAllBooks();
+            } else if (userInput.equals("4")) {
+                System.out.println("Exiting the system...");
+                scanner.close();
+                break;
+            } else {
+                System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+
+    public static void addBook() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the name of the book to add: ");
+        var nameAddBook = scanner.nextLine();
+        bookManager.addBook(nameAddBook);
+    }
+
+    public static void removeBook() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the name of the book to remove: ");
+        var nameRemoveBook = scanner.nextLine();
+        bookManager.removeBook(nameRemoveBook);
+    }
+
+    public static void viewAllBooks() {
+        bookManager.viewAllBooks();
+    }
+}
+
+
+
