@@ -76,8 +76,151 @@ public class Main {
         shop.buyCheese(client, id);
     }
 }
+xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+import java.util.ArrayList;
+public class CheeseService {
+    private static ArrayList<Cheese> cheeses = new ArrayList<>();
+
+    public static ArrayList<Cheese> getCheeses() {
+        return cheeses;
+    }
+    public static void addCheese(Cheese cheese) {
+        cheeses.add(cheese);
+    }
+
+    public void removeCheese(int id) {
+        for( var cheese: cheeses) {
+            if(cheese.getId() == id) {
+                cheeses.remove(cheese);
+                return;
+            }
+        }
+    }
+
+    public void updateCheese(int id, String name, int cost) {
+        for(Cheese cheese: cheeses) {
+            if(cheese.getId() == id) {
+                cheese.setName(name);
+                cheese.setCost(cost);
+                return;
+            }
+        }
+    }
+}
+import java.util.ArrayList;
+public class CheeseService {
+    private static ArrayList<Cheese> cheeses = new ArrayList<>();
+
+    public static ArrayList<Cheese> getCheeses() {
+        return cheeses;
+    }
+    public static void addCheese(Cheese cheese) {
+        cheeses.add(cheese);
+    }
+
+    public void removeCheese(int id) {
+        for( var cheese: cheeses) {
+            if(cheese.getId() == id) {
+                cheeses.remove(cheese);
+                return;
+            }
+        }
+    }
+
+    public void updateCheese(int id, String name, int cost) {
+        for(Cheese cheese: cheeses) {
+            if(cheese.getId() == id) {
+                cheese.setName(name);
+                cheese.setCost(cost);
+                return;
+            }
+        }
+    }
+}
+
+xxxxxxxxxxxxxx
+
+public class Cheese {
+    private int id;
+    private String name;
+    private int cost;
+
+    public Cheese(int id, String name, int cost){
+
+        this.id = id;
+        this.name = name;
+        this.cost = cost;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    public int getCost() {
+        return cost;
+
+    }
+}
 
 
+xxxxxxxxxxxxx
+import java.util.ArrayList;
+public class Shop {
+    public void buyCheese(Client client, int cheeseId) {
+        ArrayList<Cheese> cheeses = CheeseService.getCheeses();
+        for (Cheese cheese : cheeses) {
+            if (cheese.getId() == cheeseId) {
+                client.buyCheese(cheese);
+                return;
+            }
+        }
+        System.out.println("Cheese with ID " + cheeseId + " not found.");
+    }
+}
 
 
+xxxxxxxxxxxxxxx
+mport java.util.ArrayList;
+class Client {
+    private int money;
+    private ArrayList<Cheese> ownedCheeses = new ArrayList<>();
 
+    public Client(int money) {
+        this.money = money;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public ArrayList<Cheese> getOwnedCheeses() {
+        return ownedCheeses;
+    }
+
+    public void buyCheese(Cheese cheese) {
+        if (money >= cheese.getCost()) {
+            money -= cheese.getCost();
+            ownedCheeses.add(cheese);
+            System.out.println("Bought cheese: " + cheese.getName());
+        } else {
+            System.out.println("Not enough money to buy cheese: " + cheese.getName());
+        }
+    }
+}
