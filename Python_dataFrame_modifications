@@ -1,0 +1,10 @@
+Task 3: Create a filtered DataFrame that includes Category == 'Clothing' and Gender == 'M'. How many rows are there in this filtered DataFrame? Format the result as follows: The filtered DataFrame has XXXX rows. - hard 
+
+file_path = '/content/transaction_dataset.csv'
+df = pd.read_csv(file_path)
+
+filtered_df = dataset[(dataset['Category'] == 'Clothing') & (dataset['Gender'] == 'M')] # filters DataFrame by coloums Gender and Category and pics from Gender only M and from Category only Clothing
+print('The filtered DataFrame has '+str(len(filtered_df))+' rows')
+
+filtered_df_short=filtered_df[['Category','Gender']] # shows only two needed columns of the filtered dataFrame
+print(filtered_df_short)
