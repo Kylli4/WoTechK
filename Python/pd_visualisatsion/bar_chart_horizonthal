@@ -1,7 +1,7 @@
 
 
-
-
+dataset = pd.read_csv('/content/transaction_dataset-2.csv') #reading the file
+dataset.head()
 top_names=dataset['Name'].value_counts().head(5)
 top_names = top_names.iloc[::-1]
 top_names.plot(kind='barh',color='pink')
