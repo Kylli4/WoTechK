@@ -1,0 +1,10 @@
+
+
+
+
+top_names=dataset['Name'].value_counts().head(5)
+top_names = top_names.iloc[::-1]
+top_names.plot(kind='barh',color='pink')
+plt.title('5 top names in dataframe')
+plt.xlabel('count')
+plt.ylabel('Name')
