@@ -13,3 +13,4 @@ top_names.plot(kind='barh',color='pink')
 plt.title('5 top names in dataframe')
 plt.xlabel('count')
 plt.ylabel('Name')
+
